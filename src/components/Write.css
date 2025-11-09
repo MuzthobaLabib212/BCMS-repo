@@ -1,0 +1,80 @@
+/* Login Type Toggle Styles */
+.login-type-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+}
+
+.login-type-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #495057;
+  position: relative;
+  padding-left: 30px;
+  transition: color 0.3s ease;
+}
+
+.login-type-label:hover {
+  color: #007bff;
+}
+
+.login-type-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-custom {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.login-type-label input[type="radio"]:checked + .radio-custom {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.login-type-label input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.login-type-label input[type="radio"]:focus + .radio-custom {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .login-type-toggle {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .login-type-label {
+    font-size: 14px;
+  }
+}

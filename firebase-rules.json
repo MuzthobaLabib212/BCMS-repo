@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "users": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "Admin": {
+      ".read": true,
+      ".write": false
+    },
+    "orders": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$orderId": {
+        ".write": "auth != null && (!data.exists() || data.child('userId').val() === auth.uid)",
+        ".validate": "newData.hasChildren(['userId', 'itemName', 'price', 'quantity', 'orderTime', 'category', 'orderSerial']) && newData.child('userId').val() === auth.uid"
+      }
+    },
+    "categories": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "globalOrderCounter": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "userSerialCounter": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+}

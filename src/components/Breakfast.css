@@ -1,0 +1,586 @@
+.breakfast-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.breakfast-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.breakfast-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.view-cart-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.view-cart-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.breakfast-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.breakfast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.breakfast-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+.breakfast-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.breakfast-image {
+  width: auto;
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+}
+
+.item-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.breakfast-image img {
+  width: auto;
+  height: 205px;
+  object-fit: fill;
+  border-radius: 15px;
+}
+
+.breakfast-content {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.breakfast-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.breakfast-content p {
+  flex-grow: 1;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.breakfast-footer {
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.order-button {
+  background: #ffd700;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.order-button:hover {
+  background: #e6c200;
+  transform: scale(1.05);
+}
+
+.quantity-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity-input label {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+.quantity-input input {
+  width: 50px;
+  padding: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.quantity-input input:focus {
+  outline: none;
+  border-color: #ffd700;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.admin-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.admin-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.admin-controls {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.add-item-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  color: white;
+  width: 300px;
+}
+
+.add-item-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.remove-item-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  color: white;
+  width: 300px;
+}
+
+.remove-item-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.plus-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.minus-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #dc3545;
+}
+
+.add-item-form {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.add-item-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-item-form input {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.add-item-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-content input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.add-item-form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.add-item-form button[type="submit"] {
+  background: #28a745;
+  color: white;
+}
+
+.add-item-form button[type="submit"]:hover {
+  background: #218838;
+}
+
+.add-item-form button[type="button"] {
+  background: #dc3545;
+  color: white;
+}
+
+.add-item-form button[type="button"]:hover {
+  background: #c82333;
+}
+
+.breakfast-footer p {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Notification popup styles */
+.notification-popup {
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 1.5rem 2.5rem;
+  border-radius: 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.notification-popup.fade-out {
+  opacity: 0;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.modal-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.confirm-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+  background: #218838;
+}
+
+.cancel-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background: #c82333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .breakfast-container {
+    padding: 1rem;
+  }
+
+  .breakfast-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .breakfast-header p {
+    font-size: 1rem;
+  }
+
+  .view-cart-button {
+    position: static;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .breakfast-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .breakfast-card {
+    flex-direction: column;
+  }
+
+  .breakfast-image img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .item-icon {
+    font-size: 2.5rem;
+  }
+
+  .breakfast-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .breakfast-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .order-button {
+    width: 100%;
+  }
+
+  .admin-section {
+    padding: 1rem;
+  }
+
+  .admin-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .add-item-card,
+  .remove-item-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .add-item-form {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .breakfast-container {
+    padding: 1.5rem;
+  }
+
+  .breakfast-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .breakfast-header p {
+    font-size: 1.1rem;
+  }
+
+  .breakfast-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .breakfast-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .admin-controls {
+    gap: 1.5rem;
+  }
+
+  .add-item-card,
+  .remove-item-card {
+    width: 250px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .breakfast-container {
+    padding: 2rem;
+  }
+
+  .breakfast-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .breakfast-header p {
+    font-size: 1.2rem;
+  }
+
+  .breakfast-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .breakfast-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .admin-controls {
+    gap: 2rem;
+  }
+
+  .add-item-card,
+  .remove-item-card {
+    width: 300px;
+  }
+}

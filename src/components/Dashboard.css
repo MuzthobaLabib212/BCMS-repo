@@ -1,0 +1,679 @@
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.dashboard-split {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dashboard-split .dashboard-card {
+  max-width: 45%;
+  min-height: 500px;
+}
+
+.dashboard-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.notification {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.notification.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.user-info {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.user-info p {
+  margin: 0;
+  color: #555;
+}
+
+.name-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.name-form label {
+  font-weight: bold;
+  color: #333;
+}
+
+.name-input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.save-button, .logout-button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #0069d9;
+}
+
+.logout-button {
+  background-color: #007bff;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  width: 100%;
+}
+
+.logout-button:hover {
+  background-color: #3295ff;
+}
+
+.order-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.order-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #6c757d;
+  color: white;
+}
+
+.order-buttons button.active {
+  background-color: #007bff;
+}
+
+.order-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.admin-button {
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.admin-button:hover {
+  background-color: #218838;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.order-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.order-list li {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border-left: 4px solid #007bff;
+}
+
+.order-list li p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.order-list li select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.order-list li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.order-list li button:hover {
+  background-color: #218838;
+}
+
+.order-item {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid #007bff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.order-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.order-details p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.status-update {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #e9ecef;
+}
+
+.status-update select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  min-width: 120px;
+}
+
+.status-update button {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.status-update button:hover {
+  background-color: #218838;
+}
+
+.cancel-button {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .dashboard-split {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .dashboard-card {
+    max-width: 100%;
+    min-height: 400px;
+    padding: 20px;
+  }
+
+  .dashboard-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .notification {
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .user-info {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .user-info p {
+    font-size: 14px;
+  }
+
+  .name-form {
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .name-input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .save-button,
+  .logout-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .order-buttons {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .order-buttons button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .admin-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .dashboard-actions {
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .order-list {
+    margin-bottom: 15px;
+  }
+
+  .order-list li {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .order-list li p {
+    font-size: 13px;
+  }
+
+  .order-list li select {
+    margin-left: 8px;
+    padding: 4px;
+    font-size: 13px;
+  }
+
+  .order-list li button {
+    margin-left: 8px;
+    padding: 4px 8px;
+    font-size: 13px;
+  }
+
+  .order-item {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .order-header {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+  }
+
+  .order-header p {
+    font-size: 13px;
+  }
+
+  .order-details p {
+    font-size: 13px;
+  }
+
+  .status-update {
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 6px;
+  }
+
+  .status-update select {
+    padding: 5px 8px;
+    font-size: 13px;
+    min-width: 100px;
+  }
+
+  .status-update button {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .cancel-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-container {
+    padding: 18px;
+  }
+
+  .dashboard-split {
+    gap: 18px;
+  }
+
+  .dashboard-card {
+    max-width: 48%;
+    min-height: 450px;
+    padding: 25px;
+  }
+
+  .dashboard-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+
+  .notification {
+    padding: 9px;
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+
+  .user-info {
+    padding: 14px;
+    margin-bottom: 18px;
+  }
+
+  .user-info p {
+    font-size: 15px;
+  }
+
+  .name-form {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .name-input {
+    padding: 11px;
+    font-size: 15px;
+  }
+
+  .save-button,
+  .logout-button {
+    padding: 11px;
+    font-size: 15px;
+  }
+
+  .order-buttons button {
+    padding: 9px 17px;
+    font-size: 15px;
+  }
+
+  .admin-button {
+    padding: 11px 22px;
+    font-size: 15px;
+  }
+
+  .dashboard-actions {
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .order-list li {
+    padding: 14px;
+    margin-bottom: 9px;
+  }
+
+  .order-list li p {
+    font-size: 14px;
+  }
+
+  .order-list li select {
+    margin-left: 9px;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .order-list li button {
+    margin-left: 9px;
+    padding: 5px 9px;
+    font-size: 14px;
+  }
+
+  .order-item {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  .order-header {
+    margin-bottom: 9px;
+    padding-bottom: 7px;
+  }
+
+  .order-header p {
+    font-size: 14px;
+  }
+
+  .order-details p {
+    font-size: 14px;
+  }
+
+  .status-update {
+    gap: 9px;
+    margin-top: 9px;
+    padding-top: 7px;
+  }
+
+  .status-update select {
+    padding: 6px 9px;
+    font-size: 14px;
+    min-width: 110px;
+  }
+
+  .status-update button {
+    padding: 6px 11px;
+    font-size: 14px;
+  }
+
+  .cancel-button {
+    padding: 7px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+
+  .dashboard-split {
+    gap: 20px;
+  }
+
+  .dashboard-card {
+    max-width: 45%;
+    min-height: 500px;
+    padding: 30px;
+  }
+
+  .dashboard-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .notification {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .user-info p {
+    font-size: 16px;
+  }
+
+  .name-form {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .name-input {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .save-button,
+  .logout-button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .order-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .admin-button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .dashboard-actions {
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .order-list li {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .order-list li p {
+    font-size: 14px;
+  }
+
+  .order-list li select {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .order-list li button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .order-item {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .order-header {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .order-header p {
+    font-size: 14px;
+  }
+
+  .order-details p {
+    font-size: 14px;
+  }
+
+  .status-update {
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+
+  .status-update select {
+    padding: 6px 10px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+
+  .status-update button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .cancel-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
